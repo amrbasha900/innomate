@@ -5,7 +5,6 @@ import App from './App.vue'
 import router from './router'
 import { IonicVue } from '@ionic/vue'
 import { statusBarService } from '@/services/statusbar'
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css'
 import '@ionic/vue/css/normalize.css'
@@ -21,7 +20,6 @@ import '@ionic/vue/css/palettes/dark.system.css'
 import './theme/variables.css'
 
 const pinia = createPinia()
-
 const app = createApp(App)
   .use(IonicVue)
   .use(pinia)
