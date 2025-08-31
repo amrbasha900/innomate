@@ -1,0 +1,25 @@
+<!-- Simple vector drawable for app icon foreground -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Business/ERP icon -->
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M30,20 L78,20 L78,25 L30,25 Z
+                         M30,35 L78,35 L78,40 L30,40 Z
+                         M30,50 L78,50 L78,55 L30,55 Z
+                         M30,65 L78,65 L78,70 L30,70 Z
+                         M20,15 L88,15 L88,80 L20,80 Z"
+        android:strokeWidth="2"
+        android:strokeColor="#ffffff"/>
+        
+    <!-- Add a small graph/chart element -->
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M25,75 L35,65 L45,70 L55,60 L65,65 L75,55"
+        android:strokeWidth="3"
+        android:strokeColor="#ffffff"/>
+</vector>

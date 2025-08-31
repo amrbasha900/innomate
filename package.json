@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.3",
     "@capacitor/app": "7.0.2",
     "@capacitor/core": "7.4.3",
     "@capacitor/haptics": "7.0.2",
@@ -20,6 +21,7 @@
     "@ionic/vue": "^8.0.0",
     "@ionic/vue-router": "^8.0.0",
     "ionicons": "^7.0.0",
+    "pinia": "^2.1.7",
     "vue": "^3.3.0",
     "vue-router": "^4.2.0"
   },
@@ -42,5 +44,5 @@
   "overrides": {
     "rollup": "4.44.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic ERPNext mobile application"
 }

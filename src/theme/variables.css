@@ -1,2 +1,235 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+/* src/theme/variables.css - Add these safe area fixes */
+
+/* iOS and Android Safe Area Support */
+:root {
+  /* Safe area insets for notches and status bars */
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+  --safe-area-left: env(safe-area-inset-left);
+  --safe-area-right: env(safe-area-inset-right);
+  
+  /* Status bar height fallback */
+  --status-bar-height: 24px;
+  
+  /* Your app colors */
+  --ion-color-primary: #667eea;
+  --ion-color-primary-rgb: 102, 126, 234;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #5a67d8;
+  --ion-color-primary-tint: #764ba2;
+}
+
+/* Global safe area fixes */
+* {
+  box-sizing: border-box;
+}
+
+/* Fix for status bar overlap */
+ion-app {
+  /* Prevent content from going under status bar */
+  padding-top: var(--safe-area-top);
+}
+
+/* Header adjustments */
+ion-header {
+  /* Account for status bar on Android */
+  padding-top: var(--safe-area-top);
+}
+
+ion-header ion-toolbar {
+  /* Ensure toolbar doesn't overlap with status bar */
+  padding-top: 0;
+  min-height: 56px;
+}
+
+/* Content adjustments */
+ion-content {
+  /* Prevent content from being hidden behind system UI */
+  --padding-top: var(--safe-area-top);
+  --padding-bottom: var(--safe-area-bottom);
+}
+
+/* Page adjustments */
+ion-page {
+  /* Ensure pages respect safe areas */
+  padding-top: var(--safe-area-top);
+  padding-bottom: var(--safe-area-bottom);
+}
+
+/* Modal adjustments */
+ion-modal {
+  --padding-top: var(--safe-area-top);
+  --padding-bottom: var(--safe-area-bottom);
+}
+
+/* Specific fixes for different device types */
+
+/* Android with notch */
+@media screen and (orientation: portrait) {
+  ion-header {
+    padding-top: max(var(--safe-area-top), 24px);
+  }
+}
+
+/* Android landscape with punch hole */
+@media screen and (orientation: landscape) {
+  ion-header {
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+  }
+}
+
+/* Fix for specific Android issues */
+.md ion-header {
+  padding-top: var(--safe-area-top);
+}
+
+.md ion-header::after {
+  display: none; /* Remove header shadow that might cause visual issues */
+}
+
+/* Login page specific fixes */
+.login-content {
+  /* Ensure login page works with notches */
+  padding-top: max(var(--safe-area-top), 20px) !important;
+  padding-bottom: max(var(--safe-area-bottom), 20px) !important;
+  padding-left: max(var(--safe-area-left), 16px) !important;
+  padding-right: max(var(--safe-area-right), 16px) !important;
+}
+
+/* Dashboard welcome section */
+.welcome-section {
+  /* Account for status bar */
+  padding-top: calc(1.5rem + var(--safe-area-top));
+}
+
+/* Menu adjustments */
+ion-menu ion-content {
+  --padding-top: var(--safe-area-top);
+}
+
+ion-menu ion-header {
+  padding-top: var(--safe-area-top);
+}
+
+/* Button adjustments near edges */
+.floating-button {
+  margin-bottom: calc(20px + var(--safe-area-bottom));
+  margin-right: calc(20px + var(--safe-area-right));
+}
+
+/* Fix for keyboard overlap */
+ion-item {
+  --padding-bottom: max(12px, var(--safe-area-bottom));
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-background-color: #121212;
+    --ion-text-color: #ffffff;
+  }
+}
+
+/* Device specific fixes */
+
+/* Samsung devices with curved edges */
+@media screen and (min-width: 360px) and (max-width: 400px) {
+  ion-content {
+    --padding-left: max(8px, var(--safe-area-left));
+    --padding-right: max(8px, var(--safe-area-right));
+  }
+}
+
+/* Tablets and larger screens */
+@media screen and (min-width: 768px) {
+  ion-header {
+    padding-top: var(--safe-area-top);
+  }
+  
+  ion-content {
+    --padding-top: var(--safe-area-top);
+  }
+}
+
+/* Fix for full screen elements */
+.fullscreen-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--safe-area-top);
+  padding-bottom: var(--safe-area-bottom);
+  padding-left: var(--safe-area-left);
+  padding-right: var(--safe-area-right);
+}
+
+/* Loading screen fixes */
+.loading-section {
+  padding-top: calc(3rem + var(--safe-area-top));
+}
+
+/* Error cards and important content */
+.error-card,
+.important-content {
+  margin-top: var(--safe-area-top);
+  margin-left: var(--safe-area-left);
+  margin-right: var(--safe-area-right);
+}
+
+/* Animation adjustments for safe areas */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(calc(-100% - var(--safe-area-top)));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes for manual adjustments */
+.safe-area-top {
+  padding-top: var(--safe-area-top) !important;
+}
+
+.safe-area-bottom {
+  padding-bottom: var(--safe-area-bottom) !important;
+}
+
+.safe-area-left {
+  padding-left: var(--safe-area-left) !important;
+}
+
+.safe-area-right {
+  padding-right: var(--safe-area-right) !important;
+}
+
+.safe-area-all {
+  padding-top: var(--safe-area-top) !important;
+  padding-bottom: var(--safe-area-bottom) !important;
+  padding-left: var(--safe-area-left) !important;
+  padding-right: var(--safe-area-right) !important;
+}
+
+/* Debugging classes (remove in production) */
+.debug-safe-area {
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+  border-left: 2px solid blue;
+  border-right: 2px solid blue;
+}
+
+.debug-safe-area::before {
+  content: "Safe Area Debug";
+  position: absolute;
+  top: var(--safe-area-top);
+  left: 0;
+  background: rgba(255, 0, 0, 0.5);
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  z-index: 9999;
+}
